@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Interfaces\TalentRepositoryInterface;
 use App\Models\Talent;
 
-class TalentRepository
+class TalentRepository implements TalentRepositoryInterface
 {
     public function createTalent(array $details)
     {
@@ -13,7 +14,7 @@ class TalentRepository
 
     public function findTalent(int $id)
     {
-        return Talent::find($id);
+        return Talent::findOrFail($id);
     }
 
     public function updateTalent(array $details, int $id)

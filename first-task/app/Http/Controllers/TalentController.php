@@ -16,7 +16,8 @@ class TalentController extends Controller
 
     public function index()
     {
-        return Talent::with(['user', 'job'])->get();
+        $talents = Talent::with(['user', 'job'])->get();
+        return response($talents, 200);
     }
 
     public function store(StoreTalentRequest $request)

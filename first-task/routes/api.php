@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\TalentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -39,5 +40,12 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         Route::post('/talents', 'store');
         Route::get('/talents/{id}', 'show');
         Route::patch('/talents/{id}', 'update');
+    });
+
+    Route::controller(JobController::class)->group(function () {
+        Route::get('/jobs', 'index');
+        Route::post('/jobs', 'store');
+        Route::get('/jobs/{id}', 'show');
+        Route::patch('/jobs/{id}', 'update');
     });
 });
