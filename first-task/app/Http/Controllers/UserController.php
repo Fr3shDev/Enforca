@@ -35,7 +35,6 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request,$id)
     {
         $validated = $request->validated();
-        dd($validated);
         $user = $this->userRepository->updateUser($validated, $id);
         return response()->json([
             'message' => 'User updated successfully',
@@ -43,7 +42,7 @@ class UserController extends Controller
         ], 200);
     }
 
-    public function destroy($id)
+    public function delete($id)
     {
         $this->userRepository->deleteUser($id);
         return response()->json(['message' => 'User deleted successfully'], 200);

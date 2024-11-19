@@ -19,9 +19,8 @@ class UserRepository implements UserRepositoryInterface
 
     public function updateUser($userDetails,$id)
     {
-        $user = User::findOrFail($id);
-        $updated = $user->update($userDetails);
-        return $updated ? $user->fresh() : false;
+        User::findOrFail($id)->update($userDetails);
+        return User::findOrFail($id);
     }
 
     public function deleteUser($id)

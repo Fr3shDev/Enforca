@@ -18,7 +18,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/users/{id}','show');
 });
 Route::controller(UserController::class)->group(function () {
-    Route::put('/users/{id}','update');
+    Route::patch('/users/{id}','update');
 });
 Route::controller(UserController::class)->group(function () {
     Route::delete('/users/{id}','delete');
